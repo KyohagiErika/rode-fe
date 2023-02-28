@@ -7,7 +7,6 @@ const Home = () => {
     return (
         <>
             this is home page
-            <AlertComponent />
             <SubmitEx />
             <br />
             <Outlet />
