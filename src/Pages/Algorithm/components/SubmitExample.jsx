@@ -6,7 +6,7 @@ import submitApi from '../../../utils/api/submitApi';
 
 // import DropdownLang from './DropdownLang';
 import { htmlLanguage } from '@codemirror/lang-html';
-// import { javaLanguage } from '@codemirror/lang-java';
+import { javaLanguage } from '@codemirror/lang-java';
 import CodeMirror from '@uiw/react-codemirror';
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';

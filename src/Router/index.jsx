@@ -18,6 +18,7 @@ const RouterComponent = () => {
         { exact: true, path: '/login', loader: Loading, element: <Login /> },
         // { exact: true, path: '/register', loader: Loading, element: <Register /> },
         { exact: true, path: '/testMirror', loader: Loading, element: <TestCodeMirror /> },
+
         {
             path: '/',
             exact: true,
@@ -50,7 +51,7 @@ const RouterComponent = () => {
                 },
             ],
         },
-        { path: '*', element: <ErrorPage /> },
+        { path: '*', errorElement: <ErrorPage /> },
     ]);
 
     return <RouterProvider fallbackElement={<Loading />} router={router} />;
