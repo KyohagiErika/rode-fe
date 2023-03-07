@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
-import CodeMirror from '@uiw/react-codemirror';
+
 import { htmlLanguage } from '@codemirror/lang-html';
+import CodeMirror from '@uiw/react-codemirror';
 import Stack from 'react-bootstrap/Stack';
 
 const TestCodeMirror = () => {

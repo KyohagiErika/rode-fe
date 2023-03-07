@@ -1,21 +1,24 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from '../Pages/Home';
-import Loading from '../components/Loading';
-import HomeChild from '../Pages/HomeChild/HomeChild';
-import Register from '../Pages/Register';
-import PublicRoute from './PublicRoute';
-import ErrorPage from '../Pages/404Page';
-import Login from '../Pages/Login';
 import { Navigate } from 'react-router-dom';
-import AdminRoute from './AdminRoute';
+
+import ErrorPage from '../Pages/404Page';
 import Admin from '../Pages/Admin';
 import TestCodeMirror from '../Pages/CssBattle';
+import Home from '../Pages/Home';
+import HomeChild from '../Pages/HomeChild/HomeChild';
+import Login from '../Pages/Login';
+import Register from '../Pages/Register';
+import Loading from '../components/Loading';
+import AdminRoute from './AdminRoute';
+import PublicRoute from './PublicRoute';
+
 const RouterComponent = () => {
     const router = createBrowserRouter([
         { exact: true, path: '/', element: <Navigate to="home" /> },
         { exact: true, path: '/login', loader: Loading, element: <Login /> },
-        { exact: true, path: '/register', loader: Loading, element: <Register /> },
+        // { exact: true, path: '/register', loader: Loading, element: <Register /> },
         { exact: true, path: '/testMirror', loader: Loading, element: <TestCodeMirror /> },
+
         {
             path: '/',
             exact: true,
@@ -27,6 +30,12 @@ const RouterComponent = () => {
                     loader: Loading,
                     element: <Home />,
                     children: [{ path: 'homeChild', loader: Loading, element: <HomeChild /> }],
+                },
+                {
+                    exact: true,
+                    path: 'register',
+                    loader: Loading,
+                    element: <Register />,
                 },
             ],
         },
@@ -42,7 +51,7 @@ const RouterComponent = () => {
                 },
             ],
         },
-        { path: '*', element: <ErrorPage /> },
+        { path: '*', errorElement: <ErrorPage /> },
     ]);
 
     return <RouterProvider fallbackElement={<Loading />} router={router} />;

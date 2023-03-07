@@ -1,21 +1,23 @@
 import { useState, useEffect, useRef, useContext } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
+import { UserContext } from '../Context/User.context';
 import Localstorage from '../utils/Localstorage';
 import authApi from '../utils/api/authApi';
 
-import { useNavigate } from 'react-router-dom';
 function GoogleSignInButton() {
     const [gapiLoaded, setGapiLoaded] = useState(false);
+    const { setCredential } = useContext(UserContext);
     const refBtn = useRef();
     const navigate = useNavigate();
     const handleCredentialResponse = (response) => {
         console.log(`Encoded JWT ID token: ${response.credential}`);
+        Localstorage.setItem('credential', response.credential);
         authApi.login(response.credential).then((response) => {
             console.log(response);
             Localstorage.setItem('token', response.data.data);
-            navigate('/');
-        });
-        authApi.register(response.credential).then((response) => {
-            console.log(response);
+            navigate('/register');
         });
     };
 
