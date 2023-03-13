@@ -1,5 +1,7 @@
 export const themes = {
     colors: {
+        arenaBG: '#020D26',
+        neonLine: '#00e7aa',
         light: '#FFFFFF',
         dark: '#000000',
         primary: '#45CE7C',

@@ -1,8 +1,7 @@
 import { decodeToken, isExpired } from 'react-jwt';
 
-import { get } from '../ApiCaller';
-
 import { LOCAL_STORAGE_TOKEN } from '../../config';
+import { get } from '../ApiCaller';
 
 class LocalStorageUtils {
     getItem(key, defaultValue = '') {
@@ -41,7 +40,22 @@ class LocalStorageUtils {
         }
         return undefined;
     }
-
+    getCredentialUser() {
+        if (typeof localStorage !== 'undefined') {
+            const token = this.getItem('credential');
+            if (token) {
+                try {
+                    const jwtUser = decodeToken(token);
+                    return jwtUser;
+                } catch (err) {
+                    if (err.response && err.response.status === 401) {
+                        this.deleteCredential();
+                    }
+                }
+            } else return token;
+        }
+        return undefined;
+    }
     getUser() {
         if (typeof localStorage !== 'undefined') {
             const token = this.getItem(LOCAL_STORAGE_TOKEN);
@@ -83,8 +97,15 @@ class LocalStorageUtils {
     deleteUser() {
         localStorage.removeItem(LOCAL_STORAGE_TOKEN);
     }
+
+    deleteCredential() {
+        localStorage.removeItem('credential');
+    }
     getToken() {
         return this.getItem(LOCAL_STORAGE_TOKEN);
+    }
+    getCredential() {
+        return this.getItem('credential');
     }
     clear() {
         localStorage.clear();
