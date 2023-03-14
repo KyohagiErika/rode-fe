@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
 import ErrorPage from '../Pages/404Page';
+import AllAccounts from '../Pages/Accounts/AllAccounts';
 import Admin from '../Pages/Admin';
 import TestCodeMirror from '../Pages/CssBattle';
 import Home from '../Pages/Home';
@@ -25,6 +26,8 @@ const RouterComponent = () => {
         { exact: true, path: '/modal', loader: Loading, element: <TestModal /> },
         { exact: true, path: '/alert', loader: Loading, element: <TestAlert /> },
         { exact: true, path: '/testMirror', loader: Loading, element: <TestCodeMirror /> },
+        { exact: true, path: '/allAccounts', loader: Loading, element: <AllAccounts /> },
+
         {
             path: '/',
             exact: true,
