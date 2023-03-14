@@ -17,5 +17,9 @@ export const themes = {
         subtitle: '#767676',
         late: '#DA2B2B',
         upcoming: '#33A7FF',
+        primary2: '#00e7aa',
+        grey: '#f2f2f2',
+        grey2: '#6c757d',
+        grey3: '#495057',
     },
 };
