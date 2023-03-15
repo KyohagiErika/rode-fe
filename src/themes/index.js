@@ -2,10 +2,10 @@ export const themes = {
     colors: {
         light: '#FFFFFF',
         dark: '#000000',
-        primary: '#45CE7C',
+        primary: '#00E7AA',
         neutral5: '#D9D9D9',
-        primary1: '#C3EDD1',
-        primary5: '#00C464',
+        primary1: '#2E7DFF',
+        primary5: '#020D26',
         neutro5: '#D9D9D9',
         primary400: '#45CE7C',
         danger: '#FF4D4F',

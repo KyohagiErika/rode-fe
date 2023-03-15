@@ -13,6 +13,7 @@ import Loading from '../components/Loading';
 import ModalComponent from '../components/Modal';
 import TestAlert from '../components/TestAlert';
 import TestModal from '../components/TestModal';
+import UserLayoutComponent from '../components/UserLayout/UserLayout.component';
 import AdminRoute from './AdminRoute';
 import PublicRoute from './PublicRoute';
 import { loaderInfoGG } from './RouterLoader/Loader';
@@ -34,7 +35,11 @@ const RouterComponent = () => {
                     exact: true,
                     path: 'home',
                     loader: Loading,
-                    element: <Home />,
+                    element: (
+                        <UserLayoutComponent>
+                            <Home />
+                        </UserLayoutComponent>
+                    ),
                     children: [{ path: 'homeChild', loader: Loading, element: <HomeChild /> }],
                 },
             ],
